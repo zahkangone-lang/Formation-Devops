@@ -14,9 +14,9 @@ pipeline {
   // VARIABLES GLOBALES
   ////////////////////////////////////////////////////////////////////////////
   environment {
-    DOCKER_IMAGE = "donald284/ultimate-cicd:${BUILD_NUMBER}"
+    DOCKER_IMAGE = "tresorzahhabib/ultimate-cicd-letrexhub:${BUILD_NUMBER}"
     GIT_REPO_NAME = "Formation-Devops"
-    GIT_USER_NAME = "donaldte"
+    GIT_USER_NAME = "zahkangone-lang"
     // SONAR_URL vient de Jenkins (global env var)
   }
 
@@ -78,10 +78,10 @@ pipeline {
           }
 
           // TAG latest
-          sh "docker tag ${DOCKER_IMAGE} donald284/ultimate-cicd:latest"
+          sh "docker tag ${DOCKER_IMAGE} tresorzahhabib/ultimate-cicd-letrexhub:latest"
 
           docker.withRegistry('https://index.docker.io/v1/', "docker-cred") {
-            docker.image("donald284/ultimate-cicd:latest").push()
+            docker.image("tresorzahhabib/ultimate-cicd-letrexhub:latest").push()
           }
         }
       }
@@ -104,10 +104,10 @@ pipeline {
             git clone https://github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git "\$REPO_DIR"
             cd "\$REPO_DIR"
 
-            git config user.email "donaldtedom0@gmail.com"
-            git config user.name "donaldte"
+            git config user.email "zahkangone@gmail.com"
+            git config user.name "zahkangone-lang"
 
-            sed -i "s#image: donald284/ultimate-cicd:.*#image: donald284/ultimate-cicd:${BUILD_NUMBER}#" \
+            sed -i "s#image: tresorzahhabib/ultimate-cicd-letrexhub:.*#image: tresorzahhabib/ultimate-cicd-letrexhub:${BUILD_NUMBER}#" \
               Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
 
             git add Jenkins-Zero-To-Hero/java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
