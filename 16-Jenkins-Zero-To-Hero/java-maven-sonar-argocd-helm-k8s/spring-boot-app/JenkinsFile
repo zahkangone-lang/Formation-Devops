@@ -135,7 +135,7 @@ pipeline {
 
     success {
       slackSend(
-        channel: '#test-jenkins',
+        channel: '#tous-letrex-org',
         color: '#36a64f',
         message: "🎉 SUCCESS — Build #${BUILD_NUMBER} déployé avec succès ! 🚀"
       )
@@ -143,7 +143,7 @@ pipeline {
 
     failure {
       slackSend(
-        channel: '#test-jenkins',
+        channel: '#tous-letrex-org',
         color: '#ff0000',
         message: "❌ FAILURE — Le pipeline #${BUILD_NUMBER} a échoué ! ⚠️"
       )
