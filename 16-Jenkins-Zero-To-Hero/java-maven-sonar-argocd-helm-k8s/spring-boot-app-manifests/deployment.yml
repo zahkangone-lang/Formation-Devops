@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: tresorzahhabib/ultimate-cicd-letrexhub:11
+        image: tresorzahhabib/ultimate-cicd-letrexhub:8
         ports:
         - containerPort: 8080
